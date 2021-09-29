@@ -1,4 +1,3 @@
-
 const blackColor = "rgb(128,128,128)", redColor = "rgb(255,0,0)";
 const darwingStep = .2;
 
@@ -41,9 +40,9 @@ function validMaxMin(min , max){
 }
 
 
-function showCanvasDimensions(max){
+function showCanvasDimensions(maxX,maxY){
     // show the canvas dimensions to the user
-    document.getElementById("dimensions").innerText = "Grid dimension is " + max + " x " + max;
+    document.getElementById("dimensions").innerText = "Grid width " + maxX * 2 + " Grid Height " + Math.ceil(maxY)*2;
 }
 
 function scaleAllPoints(points , axes){
@@ -72,7 +71,7 @@ function calculatePoints(){
         return ;
     }
 
-    let points = [] , maxXY = Math.max(Math.abs(xMin),Math.abs(xMax)); 
+    let points = [] , maxX = Math.max(Math.abs(xMin),Math.abs(xMax)) , maxY = 0; 
 
     for (let i = parseInt(xMin) , idx = 0 ; i <= xMax ; i+=darwingStep) {
     
@@ -86,9 +85,9 @@ function calculatePoints(){
         points[idx++] = {x:xValue , y:yValue};
         
         //save max value for y to use it later in scaling
-        maxXY = Math.max(maxXY,Math.abs(yValue));
+        maxY = Math.max(maxY,Math.abs(yValue));
     }
-    return {points,maxXY};
+    return {points,maxX,maxY};
 }
 
 function initAxes() {
@@ -135,20 +134,20 @@ function startDraw() {
     prepareCanvasForDraw(ctx,canvas);
     
     // calculate the points to draw the function
-    let {points,maxXY} = calculatePoints();
+    let {points,maxX,maxY} = calculatePoints();
 
     // minus 10 to keep a space like a margin in the canvas
     let width = ctx.canvas.width / 2 - 10, height = ctx.canvas.height / 2 -10;
 
     // calculate best scale for the points to keep them inside the canvas area
     let axes = {}; 
-    axes.xScale = (width/maxXY) ;
-    axes.yScale = (height/maxXY);
+    axes.xScale = (width/maxX) ;
+    axes.yScale = (height/maxY);
     axes.x0 = canvas.width / 2;
     axes.y0 = canvas.height / 2;
 
     // show the canvas dimensions to the user
-    showCanvasDimensions(maxXY);
+    showCanvasDimensions(maxX,maxY);
 
     // scale all the points according to the canvas width and height
     scaleAllPoints(points,axes);
