@@ -18,11 +18,11 @@
 ## Testing Snaps
 
 ### valid function formats Screenshot
-![Image text](/testing-snaps/Test#1.png)
-![Image text](/testing-snaps/Test#3.png)
-### valid function formats Screenshot
-![Image text](/testing-snaps/Test#2.png)
-![Image text](/testing-snaps/Test#4.png)
+![Testing Image](testing-snaps/Test%231.png)
+![Image text](testing-snaps/Test%233.png)
+### invalid function formats Screenshot
+![Image text](testing-snaps/Test%232.png)
+![Image text](testing-snaps/Test%234.png)
 
 
 ## Tools and Technologies
