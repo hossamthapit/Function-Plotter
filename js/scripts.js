@@ -3,7 +3,7 @@ const darwingStep = .2;
 
 // just a debuging function
 function init(){
-    //return ;
+    return ;
     document.getElementById("expression").value = "x^2";
 
     document.getElementById("xMin").value = -5;
