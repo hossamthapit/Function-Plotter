@@ -1,0 +1,17 @@
+body{
+    background-color:lightskyblue;
+    margin: 10px;
+}
+
+span{
+    color: black;
+}
+
+#btnDraw{
+    margin-left: 15px;  
+}
+/* 
+*{
+    border: solid .1px;
+    border-color: blue;
+} */

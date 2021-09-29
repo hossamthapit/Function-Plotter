@@ -1,0 +1,62 @@
+<!DOCTYPE "html5">
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- bootstrap use normalize so don't include it again >
+        <!-- Required meta tags for bootstrap for mobile  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <title>Function Plotter</title>
+        <link rel= "stylesheet" href = "css/bootstrap.css" > 
+        <link rel= "stylesheet" href = "css/style.css" > <!-- last style is the dominated -->
+    </head>
+    
+    <body onload="init()+initAxes()">
+        <div class="container">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                   <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <row>
+                                <span>Function</span>
+                                <input class="col-12" type="text" id="expression" placeholder="Enter Your Function Here" required>
+                            </row>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <span >Min x</span>
+                                <row>
+                                    <input class="col-12" type="text" id="xMin" placeholder="0" required>
+                                </row>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <row>
+                                <span>Max x</span>
+                                <input class="col-12" type="text" id="xMax" placeholder="0" required>
+                            </row>
+                        </div>                            
+                        <br>
+                    </div> 
+                    <br>
+                    <div class="row">
+                        <button id="btnDraw" class="btn btn-info col-lg-3" onclick="startDraw() ">Draw Function</button>
+                        <span id = "dimensions" class="btn btn-default col-lg-3"></span>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <canvas class="col-8" id ="canvas" width="300" height="300"></canvas>
+                    </div>
+
+
+                </div>
+            </div>
+        </div> 
+
+        <script src="scripts.js"></script> 
+        <script src="js/jQuery.js"></script> <!-- before bootstrap js because it use it -->
+        <script src="js/bootstrap.min.js"></script> <!-- will not change any thing in it ? so use modified -->
+    </body>
+</html>
